@@ -5,7 +5,7 @@ function App() {
 
   return (
     
-   <p>Coming soon...</p>
+   <p>Coming soon...everthing gets well</p>
   )
 }
 
