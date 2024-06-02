@@ -15,8 +15,9 @@ export default function GameBoard({ onSelectSquare, turns }) {
     const { row, col } = square;
 
     gameBoard[row][col] = player;
-  // }
+  }
 //  const turn = turns.map((turn)=>{ // my approach by map
+
 //   const {square , player} = turn;
 //   const {row , col }= square;
 
