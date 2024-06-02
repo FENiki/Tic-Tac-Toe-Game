@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Player from "./Player";
 
 const initialGameBoard = [
   //every array should hold three values.
@@ -7,7 +7,21 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-export default function GameBoard({ onSelectSquare}) {
+export default function GameBoard({ onSelectSquare, turns }) {
+  let gameBoard = initialGameBoard;
+
+  for (const turn of turns) {
+    const { square, player } = turn;
+    const { row, col } = square;
+
+    gameBoard[row][col] = player;
+  // }
+//  const turn = turns.map((turn)=>{ // my approach by map
+//   const {square , player} = turn;
+//   const {row , col }= square;
+
+//   gameBoard [row][col]= player;
+//  })
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // function handleSelectSquare(rowIndex, colIndex) {
@@ -17,9 +31,8 @@ export default function GameBoard({ onSelectSquare}) {
   //     updateBorad[rowIndex][colIndex] = activePlayerSymbol;
   //     return updateBorad;
   //   });
-  //   onSelectSquare ();  
+  //   onSelectSquare ();
   // }
-
 
   return (
     <ol id="game-board">
@@ -36,9 +49,7 @@ export default function GameBoard({ onSelectSquare}) {
                   colIndex //to make the col of grid
                 ) => (
                   <li key={colIndex}>
-                    <button
-                      onClick={onSelectSquare}
-                    >
+                    <button onClick={() => onSelectSquare(rowIndex, colIndex)}>
                       {playerSymbol}
                     </button>
                   </li>
