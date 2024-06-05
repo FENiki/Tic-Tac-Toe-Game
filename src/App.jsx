@@ -38,17 +38,17 @@ function App() {
   }
   let winner;
   for (const combination of WINNING_COMBINATIONS) {
-    const firstSquaerSymbpl =
+    const firstSquareSymbpl =
       gameBoard[combination[0].row][combination[0].column];
-    const secondSquaerSymbpl =
+    const secondSquareSymbpl =
       gameBoard[combination[1].row][combination[1].column];
-    const thirdSquaerSymbpl =
+    const thirdSquareSymbpl =
       gameBoard[combination[2].row][combination[2].column];
 
     if (
-      firstSquaerSymbpl &&
-      firstSquaerSymbpl === secondSquaerSymbpl &&
-      firstSquaerSymbpl === thirdSquaerSymbpl
+      firstSquareSymbpl &&
+      firstSquareSymbpl === secondSquareSymbpl &&
+      firstSquareSymbpl === thirdSquareSymbpl
     ) {
       winner = firstSquaerSymbpl;
     }
