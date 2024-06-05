@@ -1,21 +1,8 @@
 import Player from "./Player";
 
-const initialGameBoard = [
-  //every array should hold three values.
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
 
-export default function GameBoard({ onSelectSquare, turns }) {
-  let gameBoard = initialGameBoard;
+export default function GameBoard({ onSelectSquare, board }) {
 
-  for (const turn of turns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
 //  const turn = turns.map((turn)=>{ // my approach by map
 
 //   const {square , player} = turn;
@@ -37,7 +24,7 @@ export default function GameBoard({ onSelectSquare, turns }) {
 
   return (
     <ol id="game-board">
-      {gameBoard.map(
+      {board.map(
         (
           row,
           rowIndex //to make the row of grid
