@@ -7,11 +7,9 @@ import GameOver from "./components/GameOver";
 import { WINNING_COMBINATIONS } from "./components/winning-combination";
 
 const PLAYERS = {
-  'X': "Player 1 ",
-  'O': "Player 2 ",
-  
-}
-
+  X: "Player 1 ",
+  O: "Player 2 ",
+};
 
 const INITIAL_GAME_BOARD = [
   //every array should hold three values.
@@ -30,7 +28,7 @@ function deriveActivePlayer(gameTurns) {
   return curPlayer;
 }
 
-function deriveGameBoard(gameTurns){
+function deriveGameBoard(gameTurns) {
   let gameBoard = [...INITIAL_GAME_BOARD.map((myArray) => [...myArray])];
 
   for (const turn of gameTurns) {
@@ -39,10 +37,10 @@ function deriveGameBoard(gameTurns){
 
     gameBoard[row][col] = player;
   }
-  return gameBoard; 
+  return gameBoard;
 }
 
-function deriveWinner (gameBoard, players){
+function deriveWinner(gameBoard, players) {
   let winner;
 
   for (const combination of WINNING_COMBINATIONS) {
@@ -67,22 +65,20 @@ function deriveWinner (gameBoard, players){
   return winner;
 }
 
-
 function App() {
-
   const [players, setPlayers] = useState(PLAYERS);
 
   const [gameTurns, setGameTurns] = useState([]);
-  
+
   const activePlayer = deriveActivePlayer(gameTurns);
 
- const gameBoard = deriveGameBoard(gameTurns);
-  
+  const gameBoard = deriveGameBoard(gameTurns);
+
   const winner = deriveWinner(gameBoard, players);
+
   const hasDraw = gameTurns.length === 9 && !winner;
 
   function handleSelectSquare(rowIndex, colIndex) {
-   
     setGameTurns((prevTurns) => {
       const currentPlayer = deriveActivePlayer(prevTurns);
 
